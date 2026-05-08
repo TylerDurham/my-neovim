@@ -1,6 +1,9 @@
 -- My preferred mappings
 map = vim.keymap.set
 
+-- Quit all
+map({"n", "v"}, "<leader>qq", "<cmd>quitall<cr>", { desc = "Close all files and quit" })
+
 -- Escape
 map("i", "jj", "<ESC>", { desc="Escape from mode 'INSERT'" })
 
@@ -41,9 +44,8 @@ local function toggle_line_numbers()
 end
 
 
-map({"n", "v"}, "<leader>qq", "<cmd>quitall<cr>", { desc = "Close all files and quit" })
-
 -- utility for current file 
 map("n", "<leader>ga", "<cmd>! git add %<cr>", { desc = "Git add current file"})
 map("n", "<leader>X", "<cmd>! chmod +x %<cr>", { desc = "Make current file executable"})
 map("n", "<leader>tn", toggle_line_numbers, { desc = "Toggle Line Numbers" })
+
