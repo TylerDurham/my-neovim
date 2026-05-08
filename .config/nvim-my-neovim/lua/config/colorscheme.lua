@@ -27,7 +27,7 @@ function M.load()
 end
 
 -- Command to switch and persist
-vim.api.nvim_create_user_command("SetColorscheme", function(opts)
+vim.api.nvim_create_user_command("MyTheme", function(opts)
   local name = opts.args
   vim.cmd.colorscheme(name)
   M.save(name)
