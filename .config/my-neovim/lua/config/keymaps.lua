@@ -40,6 +40,8 @@ local function toggle_line_numbers()
     end
 end
 
-vim.keymap.set("n", "<leader>tn", toggle_line_numbers, { desc = "Toggle Line Numbers" })
+map("n", "<leader>tn", toggle_line_numbers, { desc = "Toggle Line Numbers" })
 
 map({"n", "v"}, "<leader>qq", "<cmd>quitall<cr>", { desc = "Close all files and quit" })
+
+
