@@ -7,11 +7,13 @@ return {
       map = vim.keymap.set
       ts = require("telescope.builtin")
 
-      map({"n", "v"}, "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep"})
+      map({"n", "v"}, "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: live grep"})
       map({"n", "v"}, "<leader>ff", function()
         ts.find_files({ hidden = true })
       end,
-      { desc = "Telescope find all files" })
+      { desc = "Telescope: find all files" })
+      map({"n", "v"}, "<leader>fa", "<cmd>Telescope find_files", { desc = "Telescope: find files"})
+      map({"n", "v"}, "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Telescope: find keymaps"})
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
         vimgrep_arguments = {
