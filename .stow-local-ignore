@@ -1,7 +1,8 @@
-^/modules$
 ^/\.git$
+^/img$
+^/modules$
 ^/test$
-^test.sh$
-^install.sh$
-^clean.sh$
 ^README.md$
+^clean.sh$
+^install.sh$
+^test.sh$
