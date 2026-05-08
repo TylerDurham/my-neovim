@@ -12,6 +12,10 @@ return {
         ts.find_files({ hidden = true })
       end,
       { desc = "Telescope: find all files" })
+      map({"n", "v"}, "<leader>fn", function()
+        ts.find_files({ cwd = "~/.config/nvim", hidden = true })
+      end,
+      { desc = "Telescope: find NeoVim config files" })
       map({"n", "v"}, "<leader>fa", "<cmd>Telescope find_files", { desc = "Telescope: find files"})
       map({"n", "v"}, "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Telescope: find keymaps"})
 
