@@ -51,6 +51,19 @@ local function set_blink_highlights()
   h(0, "BlinkCmpMenuSelection", { bg = "#2d3f76", bold = true })
 end
 
+function M.current()
+  local f = io.open(state_file, "r")
+  if f then
+    local name = f:read("*l")
+    f:close()
+    if name and name ~= "" then
+      return name
+    end
+  end
+
+  return "tokyonight-storm"
+end
+
 function M.save(name)
   local f = io.open(state_file, "w")
   if f then
@@ -123,7 +136,7 @@ function M.load()
     end
   end
   -- fallback default
-  vim.cmd.colorscheme("tokyonight-storm")
+  vim.cmd.colorscheme(M.current())
   set_blink_highlights()
 end
 
