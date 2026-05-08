@@ -13,6 +13,4 @@ M.alpha.header = [[
  ░                ░
 ]]
 
-
-
 return M
