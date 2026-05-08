@@ -10,8 +10,9 @@ return {
       require("barbar").setup(opts)
 
       -- Barbar (tabs)
-      map({"n", "v"}, "<tab>", ":BufferNext<cr>")
-      map({"n", "v"}, "<s-tab>", ":BufferPrevious<cr>")
+      map({"n", "v"}, "<tab>", ":BufferNext<cr>", { desc = "Barber: Next buffer"})
+      map({"n", "v"}, "<s-tab>", ":BufferPrevious<cr>", { desc = "Barbar: Previous buffer"})
+      map({"n", "v"}, "<leader>x", ":BufferClose<cr>", { desc = "Barbar: Close current buffer"})
     end
   },
 }
