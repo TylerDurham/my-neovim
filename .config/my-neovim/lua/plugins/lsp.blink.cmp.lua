@@ -38,8 +38,25 @@ return {
       nerd_font_variant = 'mono'
     },
 
-    -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = true } },
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 100,
+        window = {
+          min_width = 20,
+          max_width = 80,
+          max_height = 30,
+          border = "rounded",
+          winblend = 10,
+          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+          scrollbar = true,
+        },
+      },
+      menu = {
+        border = "rounded",
+        winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+      },
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
