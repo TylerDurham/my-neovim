@@ -1,5 +1,7 @@
 ^/modules$
+^/\.git$
 ^/test$
 ^test.sh$
 ^install.sh$
+^clean.sh$
 ^README.md$

@@ -47,6 +47,7 @@ return {
         map("n", "<leader>ef", "<cmd>Neotree focus reveal<cr>", { desc = "Focus Neotree" })
         map("n", "<leader>er", "<cmd>Neotree reveal<cr>", { desc = "Reveal file" })
         map("n", "<leader>eg", "<cmd>Neotree float git_status<cr>", { desc = "Git status" })
+
       end,
   },
 }
