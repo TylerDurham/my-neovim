@@ -26,4 +26,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
--- Neovim will auto-load lua/plugins.lua or lua/plugins/*.lua
+
+-- Colorscheme
+require("config.colorscheme").load()
