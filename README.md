@@ -55,6 +55,26 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 - `shfmt` — Shell formatting
 - `stylua` — Lua formatting
 
+## Colorscheme
+
+Theme selection is persistent — the active colorscheme is saved to `~/.local/share/nvim/saved_colorscheme.txt` and restored on every startup. The default fallback is `tokyonight-storm`.
+
+To switch themes interactively, use the `:ThemeSelect` command (or the `t` button on the dashboard). This opens a Telescope fuzzy picker over all installed colorschemes; confirming a selection applies and saves it immediately.
+
+## Dashboard (alpha-nvim)
+
+The start screen is shown when Neovim is opened with no file argument.
+
+| Key | Action |
+|---|---|
+| `c` | New file |
+| `f` | Find file (Telescope) |
+| `g` | Find text (live grep) |
+| `n` | Open `init.lua` config |
+| `r` | Recent files |
+| `t` | Change theme (ThemeSelect picker) |
+| `q` | Quit |
+
 ## Keymaps
 
 ### General
