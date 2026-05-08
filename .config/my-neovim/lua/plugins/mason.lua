@@ -12,6 +12,7 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "gopls",
           "lua_ls",
         }
       })
@@ -21,6 +22,8 @@ return {
       local mason_tools = require('mason-tool-installer')
       mason_tools.setup({
         ensure_installed = {
+          "gofumpt",
+          "goimports",
           "shfmt",
           "stylua",
         }
