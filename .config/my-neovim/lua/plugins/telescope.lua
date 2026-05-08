@@ -19,6 +19,13 @@ return {
       map({"n", "v"}, "<leader>fa", "<cmd>Telescope find_files", { desc = "Telescope: find files"})
       map({"n", "v"}, "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Telescope: find keymaps"})
 
+      -- Custom theme selector
+      map({"n", "v"}, "<leader>th",
+      function()
+        cs = require("config.colorscheme").select_colorscheme()
+      end, 
+      { desc = "Telescope: select theme" })
+
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
         vimgrep_arguments = {
           "rg",
