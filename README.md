@@ -4,6 +4,8 @@
 
 Personal Neovim config managed with [GNU Stow](https://www.gnu.org/software/stow/) and [lazy.nvim](https://github.com/folke/lazy.nvim). Leader key is `<Space>`.
 
+<img src="https://github.com/TylerDurham/my-neovim/blob/master/img/screenshot1.png?raw=true"/>
+
 ## Installation
 
 ```shell
