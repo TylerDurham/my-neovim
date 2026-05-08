@@ -12,6 +12,9 @@ return {
         local map = vim.keymap.set  -- local to avoid polluting global scope
 
         require("neo-tree").setup({
+            buffers = {
+              follow_current_file = { enabled = true },
+            },
             enable_git_status = true, 
             filesystem = {
               filtered_items = {
