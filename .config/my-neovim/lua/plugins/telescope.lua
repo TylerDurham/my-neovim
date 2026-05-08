@@ -22,7 +22,7 @@ return {
       -- Custom theme selector
       map({"n", "v"}, "<leader>th",
       function()
-        cs = require("config.colorscheme").select_colorscheme()
+        cs = require("config.colorscheme").select()
       end, 
       { desc = "Telescope: select theme" })
 
