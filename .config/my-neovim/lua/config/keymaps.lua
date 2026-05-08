@@ -44,4 +44,6 @@ map("n", "<leader>tn", toggle_line_numbers, { desc = "Toggle Line Numbers" })
 
 map({"n", "v"}, "<leader>qq", "<cmd>quitall<cr>", { desc = "Close all files and quit" })
 
-
+-- git 
+map("n", "<leader>ga", "<cmd>! git add %<cr>", { desc = "Git add current file"})
+map("n", "<leader>X", "<cmd>! chmod +x %<cr>", { desc = "Make current file executable"})
