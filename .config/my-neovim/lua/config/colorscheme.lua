@@ -141,4 +141,8 @@ end
 --   complete = "color",  -- tab-completes installed colorschemes!
 -- })
 
+vim.api.nvim_create_user_command("ThemeSelect", function(opts)
+  M.select()
+end, {})
+
 return M
