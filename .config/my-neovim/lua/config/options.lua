@@ -31,3 +31,11 @@ opt.colorcolumn = "100"     -- Visual ruler at column 80
 opt.scrolloff = 8          -- Keep 8 lines visible above/below cursor
 opt.sidescrolloff = 8      -- Keep 8 columns visible left/right of cursor
 opt.showmode = false       -- Don't show -- INSERT -- (use a statusline plugin instead)
+opt.swapfile = false
+
+vim.api.nvim_create_user_command("LspRestart", function()
+  for _, c in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
+    c.stop()
+  end
+  vim.cmd("edit")
+end, {})
