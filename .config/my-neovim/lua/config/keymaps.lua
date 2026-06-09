@@ -43,8 +43,10 @@ local function toggle_line_numbers()
     end
 end
 
+-- Format current buffer
+map("n", "<leader>fm", function() require("conform").format({ lsp_format = "fallback" }) end, { desc = "Format buffer" })
 
--- utility for current file 
+-- utility for current file
 map("n", "<leader>ga", "<cmd>! git add %<cr>", { desc = "Git add current file"})
 map("n", "<leader>X", "<cmd>! chmod +x %<cr>", { desc = "Make current file executable"})
 map("n", "<leader>tn", toggle_line_numbers, { desc = "Toggle Line Numbers" })

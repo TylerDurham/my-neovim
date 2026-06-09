@@ -13,26 +13,14 @@ return {
       "lua",
       "python",
       "templ",
-      "tst",
+      "tsx",
       "typescript",
       "vim",
       "vimdoc",
-      "templ",
     },
   },
-  -- custom setup
-  config = function()
-
-    -- install templ 
-    require('nvim-treesitter').install({ 'templ' })
-
-    -- register filetype
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'templ',
-      callback = function()
-        vim.treesitter.start()
-      end,
-    })
+  config = function(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
   end
 }
 
