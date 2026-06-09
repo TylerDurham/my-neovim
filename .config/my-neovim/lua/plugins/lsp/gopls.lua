@@ -1,6 +1,6 @@
 return {
   name = "gopls",
-  ensure_installed = true,
+  -- ensure_installed = true,
   config = {
     settings = {
       gopls = {
