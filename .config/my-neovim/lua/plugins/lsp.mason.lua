@@ -40,10 +40,10 @@ return {
 
       require('mason-tool-installer').setup({
         ensure_installed = {
-          "gofumpt",
-          "goimports",
+          -- "gofumpt",
+          -- "goimports",
+          "prettier",
           "shfmt",
-          "stylua",
         }
       })
     end
