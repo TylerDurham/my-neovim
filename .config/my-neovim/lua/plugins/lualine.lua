@@ -12,7 +12,7 @@ return {
       end
 
       require("lualine").setup({
-        theme = "base16",
+        theme = "auto",
         sections = {
           lualine_b = {
             {

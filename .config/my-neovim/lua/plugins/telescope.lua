@@ -4,8 +4,8 @@ return {
     opts = function(_, opts)
       local actions = require "telescope.actions"
 
-      map = vim.keymap.set
-      ts = require("telescope.builtin")
+      local map = vim.keymap.set
+      local ts = require("telescope.builtin")
 
       map({"n", "v"}, "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Telescope: live grep"})
       map({"n", "v"}, "<leader>ff", function()
@@ -16,13 +16,13 @@ return {
         ts.find_files({ cwd = "~/.config/nvim", hidden = true })
       end,
       { desc = "Telescope: find NeoVim config files" })
-      map({"n", "v"}, "<leader>fa", "<cmd>Telescope find_files", { desc = "Telescope: find files"})
+      map({"n", "v"}, "<leader>fa", "<cmd>Telescope find_files<CR>", { desc = "Telescope: find files"})
       map({"n", "v"}, "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Telescope: find keymaps"})
 
       -- Custom theme selector
       map({"n", "v"}, "<leader>th",
       function()
-        cs = require("config.colorscheme").select()
+        local cs = require("config.colorscheme").select()
       end, 
       { desc = "Telescope: select theme" })
 

@@ -2,7 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "       -- Space as leader (most popular choice)
-vim.g.maplocalleader = " "  -- Backslash as local leader (used by some plugins)
+vim.g.maplocalleader = " "  -- Space as local leader
 
 local opt = vim.opt
 
