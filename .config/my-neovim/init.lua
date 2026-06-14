@@ -9,3 +9,5 @@ require("config.lazy")
 
 -- Custom colorscheme/theme switcher
 require("config.colorscheme").load()
+
+require("config.autocmds")
