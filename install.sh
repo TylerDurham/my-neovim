@@ -1,5 +1,9 @@
 #/usr/bin/env bash
 
 stow -S . -t ~/
-mv ~/.config/nvim ~/.config/nvim.bak
+
+if [[ -f ~/.config/nvim ]]; then
+  mv ~/.config/nvim ~/.config/nvim.bak
+fi
+
 ln -s -f ~/.config/my-neovim ~/.config/nvim
