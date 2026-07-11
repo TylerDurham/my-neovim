@@ -12,6 +12,7 @@ return {
       typescript = { 'prettier' },
       templ = { 'templ' },
       sh = { 'shfmt' },
+      nix = { 'nixfmt' },
     },
   },
 }
