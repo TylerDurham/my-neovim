@@ -46,6 +46,8 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-close brackets & quotes |
 | [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors) | Inline color previews |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keymap hints popup |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | Highlight and search TODO comments |
+| [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics / quickfix panel |
 
 ### Colorschemes
 
@@ -67,6 +69,7 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 - `emmet_language_server` — HTML / CSS / JSX
 - `templ` — Templ
 - `just-lsp` — Justfile
+- `nixd` — Nix (system-managed, not Mason — install via nix)
 
 ### Formatters / tools (auto-installed via Mason)
 
@@ -74,6 +77,7 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 - `shfmt` — Shell formatting
 - `stylua` — Lua formatting (system-managed, not Mason)
 - `gofumpt`, `goimports` — Go formatting (system-managed, not Mason)
+- `nixfmt` — Nix formatting (system-managed, not Mason — install via nix)
 
 ## Colorscheme
 
@@ -127,7 +131,7 @@ The start screen is shown when Neovim is opened with no file argument.
 |---|---|---|
 | `<Tab>` | n/v | Next buffer |
 | `<S-Tab>` | n/v | Previous buffer |
-| `<leader>x` | n/v | Close current buffer |
+| `<leader>q` | n/v | Close current buffer |
 
 ### File explorer (neo-tree)
 
@@ -147,6 +151,7 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<leader>fn` | n/v | Find neovim config files |
 | `<leader>fw` | n/v | Live grep |
 | `<leader>fk` | n/v | Browse keymaps |
+| `<leader>ft` | n/v | Find TODO comments |
 | `<leader>th` | n/v | Select colorscheme (Telescope picker) |
 
 #### Telescope picker keymaps
@@ -167,6 +172,25 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<CR>` | Accept selection |
 | `<C-Space>` | Open menu or docs |
 | `<C-e>` | Hide menu |
+
+### TODO Comments
+
+| Key | Mode | Action |
+|---|---|---|
+| `]t` | n | Jump to next TODO comment |
+| `[t` | n | Jump to previous TODO comment |
+
+### Diagnostics (trouble.nvim)
+
+| Key | Mode | Action |
+|---|---|---|
+| `<leader>xx` | n | Toggle workspace diagnostics |
+| `<leader>xX` | n | Toggle buffer diagnostics |
+| `<leader>xt` | n | Toggle TODO list |
+| `<leader>xL` | n | Toggle location list |
+| `<leader>xQ` | n | Toggle quickfix list |
+| `<leader>cs` | n | Toggle symbols panel |
+| `<leader>cl` | n | Toggle LSP definitions / references |
 
 ## Scripts
 
