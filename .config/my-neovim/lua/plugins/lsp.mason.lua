@@ -8,6 +8,17 @@ return {
       "neovim/nvim-lspconfig"
     },
     config = function()
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(event)
+          local map = vim.keymap.set
+          local buf = { buffer = event.buf }
+          map("n", "K",           vim.lsp.buf.hover,            vim.tbl_extend("force", buf, { desc = "LSP: hover documentation" }))
+          map("n", "<C-k>",       vim.lsp.buf.signature_help,   vim.tbl_extend("force", buf, { desc = "LSP: signature help" }))
+          map("n", "<leader>rn",  vim.lsp.buf.rename,           vim.tbl_extend("force", buf, { desc = "LSP: rename symbol" }))
+          map("n", "gd",          vim.lsp.buf.definition,       vim.tbl_extend("force", buf, { desc = "LSP: go to definition" }))
+        end,
+      })
+
       require("mason").setup({})
 
       local lsp_dir = vim.fn.stdpath("config") .. "/lua/plugins/lsp"
