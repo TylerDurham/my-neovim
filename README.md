@@ -173,6 +173,15 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<C-Space>` | Open menu or docs |
 | `<C-e>` | Hide menu |
 
+### LSP
+
+| Key | Mode | Action |
+|---|---|---|
+| `K` | n | Hover documentation |
+| `<C-k>` | n | Signature help (function args) |
+| `<leader>rn` | n | Rename symbol |
+| `gd` | n | Go to definition |
+
 ### TODO Comments
 
 | Key | Mode | Action |
