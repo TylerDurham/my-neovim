@@ -132,6 +132,9 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<Tab>` | n/v | Next buffer |
 | `<S-Tab>` | n/v | Previous buffer |
 | `<leader>q` | n/v | Close current buffer |
+| `<leader>qb` | n/v | Close all buffers but current |
+| `<leader>qr` | n/v | Close all buffers to the right |
+| `<leader>ql` | n/v | Close all buffers to the left |
 
 ### File explorer (neo-tree)
 
