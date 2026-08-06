@@ -25,7 +25,8 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
     │   ├── keymaps.lua       # Global keymaps (not plugin-specific)
     │   ├── colorscheme.lua   # Colorscheme loader
     │   └── settings.lua      # Shared settings (e.g. alpha dashboard header)
-    └── plugins/              # One file per plugin, loaded by lazy.nvim
+    ├── plugins/              # One file per plugin, loaded by lazy.nvim
+    └── snippets/             # Custom VSCode-style snippets (see Snippets)
 ```
 
 ## Plugins
@@ -175,6 +176,34 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<CR>` | Accept selection |
 | `<C-Space>` | Open menu or docs |
 | `<C-e>` | Hide menu |
+
+### Snippets
+
+Custom snippets live in `.config/my-neovim/snippets/` in [VSCode snippet format](https://code.visualstudio.com/docs/editor/userdefinedsnippets),
+loaded by blink.cmp's `snippets` source alongside [friendly-snippets](https://github.com/rafamadriz/friendly-snippets).
+Type the prefix, then `<Tab>`/`<CR>` to expand.
+
+| Prefix | Filetypes | Description |
+|---|---|---|
+| `logging` | sh, bash, zsh | Minimal colored `info` / `debug` / `warn` / `error` helpers |
+
+The `logging` block writes to stderr, only emits ANSI colors when stderr is a TTY, and
+keeps `debug` silent unless `DEBUG` is set:
+
+```sh
+info "starting"     # [INFO ] starting     (blue)
+debug "details"     # silent unless DEBUG is set   (gray)
+warn "careful"      # [WARN ] careful      (yellow)
+error "failed"      # [ERROR] failed       (red)
+```
+
+#### Adding a snippet
+
+1. Add the snippet to an existing file in `snippets/` (e.g. `shell.json`), or create a new
+   `<language>.json` file.
+2. If you created a new file, register it under `contributes.snippets` in `snippets/package.json`
+   with its `language` list.
+3. Restart Neovim — snippet files are read at startup.
 
 ### LSP
 

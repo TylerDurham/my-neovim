@@ -62,6 +62,14 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      providers = {
+        snippets = {
+          opts = {
+            -- VSCode-style snippets in <config>/snippets (see snippets/package.json)
+            search_paths = { vim.fn.stdpath('config') .. '/snippets' },
+          },
+        },
+      },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
