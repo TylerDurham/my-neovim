@@ -33,9 +33,14 @@ return {
         end
       end
 
+      -- Every spec below is passed to vim.lsp.enable, so a server that is
+      -- enabled but never installed fails to spawn every time its filetype is
+      -- opened. Default to installing: dropping a file in lua/plugins/lsp/
+      -- means "I want this server". Set ensure_installed = false in a spec to
+      -- opt out — e.g. when the server comes from a system package instead.
       local ensure_installed = {}
       for _, spec in ipairs(servers) do
-        if spec.ensure_installed then
+        if spec.ensure_installed ~= false then
           table.insert(ensure_installed, spec.name)
         end
       end
