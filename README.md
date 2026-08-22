@@ -46,6 +46,10 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Code formatter |
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Auto-close brackets & quotes |
 | [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors) | Inline color previews |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol client |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | Debugger UI (scopes, stacks, watches, repl) |
+| [nvim-dap-go](https://github.com/leoluz/nvim-dap-go) | Go / Delve adapter + test debugging |
+| [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text) | Inline variable values while debugging |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keymap hints popup |
 | [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | Highlight and search TODO comments |
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Diagnostics / quickfix panel |
@@ -74,8 +78,10 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 
 ### Formatters / tools (auto-installed via Mason)
 
+- `delve` — Go debugger (`dlv`, used by nvim-dap-go)
 - `prettier` — CSS, HTML, JavaScript, TypeScript
 - `shfmt` — Shell formatting
+- `tree-sitter-cli` — required by nvim-treesitter to build parsers
 - `stylua` — Lua formatting (system-managed, not Mason)
 - `gofumpt`, `goimports` — Go formatting (system-managed, not Mason)
 - `nixfmt` — Nix formatting (system-managed, not Mason — install via nix)
@@ -124,7 +130,7 @@ The start screen is shown when Neovim is opened with no file argument.
 | `<leader>Y` | n | Yank line to system clipboard |
 | `<leader>p` | n/v | Paste from system clipboard |
 | `<leader>P` | n/v | Paste before from system clipboard |
-| `<leader>d` | n/v | Delete to black-hole register (no yank) |
+| `<leader>d` | n/v | Delete to black-hole register (no yank) — debug keymaps use `<leader>D` so they don't shadow this |
 
 ### Buffers (barbar)
 
@@ -213,6 +219,36 @@ error "failed"      # [ERROR] failed       (red)
 | `<C-k>` | n | Signature help (function args) |
 | `<leader>rn` | n | Rename symbol |
 | `gd` | n | Go to definition |
+
+### Debugging (nvim-dap)
+
+Go debugging is wired up out of the box — Delve (`dlv`) is installed by Mason, and `nvim-dap-go`
+registers the Go adapter plus the standard *debug package* / *debug test* / *attach* configurations.
+Press `<F5>` in a Go file to start; the UI panels open and close with the session.
+
+| Key | Mode | Action |
+|---|---|---|
+| `<F5>` | n | Continue / start session |
+| `<S-F5>` | n | Terminate session |
+| `<F9>` | n | Toggle breakpoint |
+| `<F10>` | n | Step over |
+| `<F11>` | n | Step into |
+| `<S-F11>` | n | Step out |
+| `<leader>b` | n | Toggle breakpoint |
+| `<leader>B` | n | Conditional breakpoint (prompts for expression) |
+| `<leader>Du` | n | Toggle debugger UI |
+| `<leader>De` | n/v | Evaluate expression under cursor / selection |
+| `<leader>Dr` | n | Toggle debug REPL |
+| `<leader>Dl` | n | Run last configuration |
+| `<leader>Dc` | n | Run to cursor |
+| `<leader>Dt` | n | Debug nearest Go test |
+| `<leader>DT` | n | Debug last Go test |
+
+Delve builds with `go build`, so the debug target must live inside a Go module — run
+`go mod init <name>` first if the directory has no `go.mod`.
+
+> Debug actions use `<leader>D` (capital) rather than `<leader>d`, which is taken by
+> delete-without-yanking — using it as a prefix would break `dt{char}`-style motions.
 
 ### TODO Comments
 

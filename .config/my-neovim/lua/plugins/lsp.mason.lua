@@ -56,8 +56,10 @@ return {
 
       require('mason-tool-installer').setup({
         ensure_installed = {
+          "delve",           -- Go debugger (dlv), used by nvim-dap-go
           "prettier",
           "shfmt",
+          "tree-sitter-cli", -- required by nvim-treesitter to build parsers
         }
       })
     end
