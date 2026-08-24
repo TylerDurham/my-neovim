@@ -8,8 +8,18 @@
   "contributes": {
     "snippets": [
       {
-        "language": ["sh", "bash", "zsh"],
+        "language": [
+          "sh",
+          "bash",
+          "zsh"
+        ],
         "path": "./shell.json"
+      },
+      {
+        "language": [
+          "go"
+        ],
+        "path": "./go.json"
       }
     ]
   }

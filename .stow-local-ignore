@@ -2,6 +2,7 @@
 ^\.gitignore$
 ^\.stow-local-ignore$
 ^\.luarc.json$
+^/docs$
 ^/img$
 ^/modules$
 ^/test$

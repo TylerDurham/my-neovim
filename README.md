@@ -19,14 +19,14 @@ This symlinks the config via Stow and points `~/.config/nvim` at `~/.config/my-n
 ```
 .config/my-neovim/
 ├── init.lua                  # Entry point — loads config + lazy.nvim
-└── lua/
-    ├── config/
-    │   ├── options.lua       # Vim options (tabs, line numbers, clipboard, etc.)
-    │   ├── keymaps.lua       # Global keymaps (not plugin-specific)
-    │   ├── colorscheme.lua   # Colorscheme loader
-    │   └── settings.lua      # Shared settings (e.g. alpha dashboard header)
-    ├── plugins/              # One file per plugin, loaded by lazy.nvim
-    └── snippets/             # Custom VSCode-style snippets (see Snippets)
+├── lua/
+│   ├── config/
+│   │   ├── options.lua       # Vim options (tabs, line numbers, clipboard, etc.)
+│   │   ├── keymaps.lua       # Global keymaps (not plugin-specific)
+│   │   ├── colorscheme.lua   # Colorscheme loader
+│   │   └── settings.lua      # Shared settings (e.g. alpha dashboard header)
+│   └── plugins/              # One file per plugin, loaded by lazy.nvim
+└── snippets/                 # Custom VSCode-style snippets (see Snippets)
 ```
 
 ## Plugins
@@ -189,19 +189,10 @@ Custom snippets live in `.config/my-neovim/snippets/` in [VSCode snippet format]
 loaded by blink.cmp's `snippets` source alongside [friendly-snippets](https://github.com/rafamadriz/friendly-snippets).
 Type the prefix, then `<Tab>`/`<CR>` to expand.
 
-| Prefix | Filetypes | Description |
+| Language | Prefixes | Reference |
 |---|---|---|
-| `logging` | sh, bash, zsh | Minimal colored `info` / `debug` / `warn` / `error` helpers |
-
-The `logging` block writes to stderr, only emits ANSI colors when stderr is a TTY, and
-keeps `debug` silent unless `DEBUG` is set:
-
-```sh
-info "starting"     # [INFO ] starting     (blue)
-debug "details"     # silent unless DEBUG is set   (gray)
-warn "careful"      # [WARN ] careful      (yellow)
-error "failed"      # [ERROR] failed       (red)
-```
+| Shell (`sh`, `bash`, `zsh`) | `shebang`, `logging`, `usage`, `getopts`, `args` | [docs/shell.md](docs/shell.md) |
+| Go | `iferr`, `errsent`, `ctxto`, `defclose`, `tt`, `bench`, `mainctx`, `httpsrv`, `workers` | [docs/go.md](docs/go.md) |
 
 #### Adding a snippet
 
@@ -209,7 +200,9 @@ error "failed"      # [ERROR] failed       (red)
    `<language>.json` file.
 2. If you created a new file, register it under `contributes.snippets` in `snippets/package.json`
    with its `language` list.
-3. Restart Neovim — snippet files are read at startup.
+3. Document it in the matching `docs/<language>.md` (create one and add a row to the table
+   above if the language is new).
+4. Restart Neovim — snippet files are read at startup.
 
 ### LSP
 
